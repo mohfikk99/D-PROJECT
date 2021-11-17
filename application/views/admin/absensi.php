@@ -129,15 +129,7 @@
                         <input type="date" class="form-control" name="tanggal" placeholder="Tanggal...">
                     </div>
                     <div class="form-group">
-                        <select name="keterangan" class="form-control">
-                            <option value="tanpa keterangan">* Pilih Keterangan...</option>
-                            <option value="hadir">Hadir</option>
-                            <option value="izin">Izin</option>
-                            <option value="sakit">Sakit</option>
-                            <option value="tidak hadir">tidak hadir</option>
-                            <option value="lainnya">Lainnya</option>
-
-                        </select>
+                        <input type="text" class="form-control" name="keterangan" placeholder="Keterangan...">    
                     </div>
                 </div>
                 <div class="modal-footer">

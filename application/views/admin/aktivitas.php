@@ -110,6 +110,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
+            <?= form_open_multipart('admin/aktivitas'); ?>
             <form action="<?= base_url('admin/aktivitas'); ?>" method="post">
                 <div class="modal-body">
                     <div class="form-group">
@@ -127,6 +128,10 @@
 
                     <div class="form-group">
                         <textarea name="aktivitas_harian" class="form-control" cols="10" rows="5" placeholder="Aktivitas Harian..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <span>Tambahkan File Anda</span>
+                        <input type="file" class="form-control" name="gambar" accept=".doc, .pdf">
                     </div>
                 </div>
                 <div class="modal-footer">

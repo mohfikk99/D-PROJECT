@@ -105,6 +105,22 @@ class Admin extends CI_Controller
         'id_absensi' => $this->input->post('id_absensi'),
         'aktivitas_harian' => $this->input->post('aktivitas_harian'),
       ];
+      // gambar
+      $upload_gambar = $_FILES['gambar']['name'];
+      if ($upload_gambar) {
+        $config['allowed_types'] = 'doc|pdf';
+        $config['max_size'] = '5048';
+        $config['upload_path'] = './assets/file/';
+        $this->load->library('upload', $config);
+
+        if ($this->upload->do_upload('gambar')) {
+          $new_gambar = $this->upload->data('file_name');
+          $this->db->set('gambar', $new_gambar);
+        }else {
+          echo $this->upload->display_errors();
+        }
+      }
+      // akhir gambar
       $this->db->insert('aktivitas', $data);
       $this->session->set_flashdata('massage', '<div class="alert alert-success" role="alert">
       berhasil ditambahkan</div>');
