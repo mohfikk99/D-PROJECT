@@ -16,6 +16,7 @@
         <div class="row">
             <div class="col-lg-8">
                 <?php foreach ($aktivitas as $p) : ?>
+                    <?= form_open_multipart('pengaturan_admin/update_aktivitas'); ?>
                     <form action="<?= base_url('pengaturan_admin/update_aktivitas'); ?>" method="POST">
                         <div class="form-group row">
                             <label class="col-sm-2 col-form-label">^ Nama</label>
@@ -31,6 +32,18 @@
                             <label for="aktivitas_harian" class="col-sm-2 col-form-label">Aktivitas Harian</label>
                             <div class="col-sm-10">
                                 <textarea rows="10" class="form-control" id="aktivitas_harian" name="aktivitas_harian" value="<?= $p->aktivitas_harian; ?>"><?= $p->aktivitas_harian; ?></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="aktivitas_harian" class="col-sm-2 col-form-label">Tambahkan File</label>
+                            <div class="col-sm-10 row">
+                                <div class="col-sm-4">
+                                    <span><?= $p->gambar; ?></span>
+                                </div>
+                                <div class="col-sm-8">
+                                    <input type="file" class="form-control" name="gambar" accept=".docx, .pdf" value="<?= $p->gambar; ?>">
+                                </div>
                             </div>
                         </div>
 

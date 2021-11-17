@@ -74,6 +74,7 @@
                                 <th>Nama</th>
                                 <th>Tanggal</th>
                                 <th>Aktivitas Harian</th>
+                                <th>Doc...</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -88,6 +89,10 @@
                                     <td><?= $a['nama']; ?></td>
                                     <td><?= $a['tanggal']; ?></td>
                                     <td><?= $a['aktivitas_harian']; ?></td>
+                                    <td>
+                                        <a href="<?= base_url('assets/file/' . $a['gambar']); ?>"><?= $a['gambar']; ?></a>
+
+                                    </td>
                                 </tr>
                                 <?php $i++; ?>
                             <?php endforeach; ?>
@@ -131,7 +136,7 @@
                     </div>
                     <div class="form-group">
                         <span>Tambahkan File Anda</span>
-                        <input type="file" class="form-control" name="gambar" accept=".doc, .pdf">
+                        <input type="file" class="form-control" name="gambar" accept=".docx, .pdf">
                     </div>
                 </div>
                 <div class="modal-footer">

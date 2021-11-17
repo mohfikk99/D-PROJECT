@@ -108,7 +108,7 @@ class Admin extends CI_Controller
       // gambar
       $upload_gambar = $_FILES['gambar']['name'];
       if ($upload_gambar) {
-        $config['allowed_types'] = 'doc|pdf';
+        $config['allowed_types'] = 'docx|pdf';
         $config['max_size'] = '5048';
         $config['upload_path'] = './assets/file/';
         $this->load->library('upload', $config);
@@ -116,7 +116,7 @@ class Admin extends CI_Controller
         if ($this->upload->do_upload('gambar')) {
           $new_gambar = $this->upload->data('file_name');
           $this->db->set('gambar', $new_gambar);
-        }else {
+        } else {
           echo $this->upload->display_errors();
         }
       }
@@ -162,32 +162,31 @@ class Admin extends CI_Controller
 
   public function profil_kantor()
   {
-   
-      $data = [
-        'jenis' => $this->input->post('jenis'),
-      ];
 
-      // gambar
-      $upload_gambar = $_FILES['gambar']['name'];
-      if ($upload_gambar) {
-        $config['allowed_types'] = 'gif|jpg|png|jpeg';
-        $config['max_size'] = '5048';
-        $config['upload_path'] = './assets/images/desa/';
-        $this->load->library('upload', $config);
+    $data = [
+      'jenis' => $this->input->post('jenis'),
+    ];
 
-        if ($this->upload->do_upload('gambar')) {
-          $new_gambar = $this->upload->data('file_name');
-          $this->db->set('gambar', $new_gambar);
-        }else {
-          echo $this->upload->display_errors();
-        }
+    // gambar
+    $upload_gambar = $_FILES['gambar']['name'];
+    if ($upload_gambar) {
+      $config['allowed_types'] = 'gif|jpg|png|jpeg';
+      $config['max_size'] = '5048';
+      $config['upload_path'] = './assets/images/desa/';
+      $this->load->library('upload', $config);
+
+      if ($this->upload->do_upload('gambar')) {
+        $new_gambar = $this->upload->data('file_name');
+        $this->db->set('gambar', $new_gambar);
+      } else {
+        echo $this->upload->display_errors();
       }
-      // akhir gambar
-      $this->db->insert('profil_kantor_desa', $data);
-      $this->session->set_flashdata('massage', '<div class="alert alert-success" role="alert">
+    }
+    // akhir gambar
+    $this->db->insert('profil_kantor_desa', $data);
+    $this->session->set_flashdata('massage', '<div class="alert alert-success" role="alert">
       berhasil ditambahkan</div>');
-      redirect('admin/profil');
-  
+    redirect('admin/profil');
   }
 
   public function petunjuk()
@@ -199,27 +198,7 @@ class Admin extends CI_Controller
     $this->load->view('templates/header_admin', $data);
     $this->load->view('admin/petunjuk', $data);
     $this->load->view('templates/footer');
-   
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }
 
   /* End of file Admin.php */

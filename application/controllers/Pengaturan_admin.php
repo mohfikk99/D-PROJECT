@@ -151,6 +151,22 @@ class Pengaturan_admin extends CI_Controller
             'id_absensi' => $this->input->post('id_absensi'),
             'aktivitas_harian' => $this->input->post('aktivitas_harian'),
         ];
+        // gambar
+        $upload_gambar = $_FILES['gambar']['name'];
+        if ($upload_gambar) {
+            $config['allowed_types'] = 'docx|pdf';
+            $config['max_size'] = '5048';
+            $config['upload_path'] = './assets/file/';
+            $this->load->library('upload', $config);
+
+            if ($this->upload->do_upload('gambar')) {
+                $new_gambar = $this->upload->data('file_name');
+                $this->db->set('gambar', $new_gambar);
+            } else {
+                echo $this->upload->display_errors();
+            }
+        }
+        // akhir gambar
 
         $this->db->set($data);
         $this->db->where('id_aktivitas', $id_aktivitas);
@@ -168,41 +184,4 @@ class Pengaturan_admin extends CI_Controller
         berhasil dihapus</div>');
         redirect('admin/aktivitas');
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }

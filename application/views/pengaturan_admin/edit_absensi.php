@@ -37,14 +37,7 @@
                         <div class="form-group row">
                             <label for="keterangan" class="col-sm-2 col-form-label">keterangan</label>
                             <div class="col-sm-10">
-                                <select name="keterangan" class="form-control" id="keterangan" required>
-                                    <option value="<?= $p->keterangan; ?>"><?= $p->keterangan; ?></option>
-                                    <option value="hadir">Hadir</option>
-                                    <option value="izin">Izin</option>
-                                    <option value="sakit">Sakit</option>
-                                    <option value="tidak hadir">tidak hadir</option>
-                                    <option value="lainnya">Lainnya</option>
-                                </select>
+                                <input type="text" class="form-control" id="keterangan" name="keterangan" value="<?= $p->keterangan; ?>" required>
                             </div>
                         </div>
 

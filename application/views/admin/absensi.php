@@ -129,7 +129,7 @@
                         <input type="date" class="form-control" name="tanggal" placeholder="Tanggal...">
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" name="keterangan" placeholder="Keterangan...">    
+                        <input type="text" class="form-control" name="keterangan" placeholder="Keterangan..." required>
                     </div>
                 </div>
                 <div class="modal-footer">
