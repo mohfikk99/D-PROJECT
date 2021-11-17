@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 05 Agu 2021 pada 07.29
--- Versi server: 10.1.37-MariaDB
--- Versi PHP: 7.2.12
+-- Waktu pembuatan: 17 Nov 2021 pada 12.28
+-- Versi server: 10.4.21-MariaDB
+-- Versi PHP: 7.4.25
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -59,7 +58,8 @@ INSERT INTO `absensi` (`id_absensi`, `id_pengguna`, `tanggal`, `keterangan`) VAL
 (39, 3, '2021-07-31', 'hadir'),
 (40, 3, '2021-08-05', 'izin'),
 (41, 4, '2021-08-05', 'hadir'),
-(42, 5, '2021-08-05', 'tidak hadir');
+(42, 5, '2021-08-05', 'tidak hadir'),
+(43, 3, '2021-11-17', 'hadir');
 
 -- --------------------------------------------------------
 
@@ -70,19 +70,21 @@ INSERT INTO `absensi` (`id_absensi`, `id_pengguna`, `tanggal`, `keterangan`) VAL
 CREATE TABLE `aktivitas` (
   `id_aktivitas` int(11) NOT NULL,
   `id_absensi` int(11) NOT NULL,
-  `aktivitas_harian` text NOT NULL
+  `aktivitas_harian` text NOT NULL,
+  `gambar` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `aktivitas`
 --
 
-INSERT INTO `aktivitas` (`id_aktivitas`, `id_absensi`, `aktivitas_harian`) VALUES
-(9, 20, 'menyapu'),
-(10, 21, 'makan'),
-(11, 25, 'belanja'),
-(12, 38, 'vvv'),
-(13, 41, 'menyapu');
+INSERT INTO `aktivitas` (`id_aktivitas`, `id_absensi`, `aktivitas_harian`, `gambar`) VALUES
+(9, 20, 'menyapu', ''),
+(10, 21, 'makan', ''),
+(11, 25, 'belanja', ''),
+(12, 38, 'vvv', ''),
+(13, 41, 'menyapu', ''),
+(17, 43, 'tes3', 'kerangka_pikir1.pdf');
 
 -- --------------------------------------------------------
 
@@ -201,19 +203,19 @@ ALTER TABLE `profil_kantor_desa`
 -- AUTO_INCREMENT untuk tabel `absensi`
 --
 ALTER TABLE `absensi`
-  MODIFY `id_absensi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
+  MODIFY `id_absensi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
 -- AUTO_INCREMENT untuk tabel `aktivitas`
 --
 ALTER TABLE `aktivitas`
-  MODIFY `id_aktivitas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_aktivitas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT untuk tabel `profil_desa`
 --
 ALTER TABLE `profil_desa`
-  MODIFY `id_profil_desa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_profil_desa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT untuk tabel `profil_kantor_desa`
